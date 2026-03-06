@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { pages, REPO_URL } from '@/data/pages'
+import BackToTop from '@/components/BackToTop.vue'
 
 const j2teamProducts = [
   { name: 'J2TEAM Security', url: 'https://j2team.org/' },
@@ -260,5 +261,7 @@ function padIndex(i: number): string {
         </a>
       </p>
     </footer>
+
+    <BackToTop />
   </div>
 </template>
