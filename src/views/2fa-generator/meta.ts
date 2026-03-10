@@ -6,7 +6,7 @@ const meta: PageMeta = {
   description:
     'Tạo mã xác thực hai yếu tố (TOTP) từ secret key — hỗ trợ nhập thủ công hoặc qua URL parameter.',
   author: 'canhhungit',
-  facebook: 'https://www.facebook.com/canhhungit',
+  facebook: 'https://github.com/canhhungit',
   category: 'tool',
 }
 
