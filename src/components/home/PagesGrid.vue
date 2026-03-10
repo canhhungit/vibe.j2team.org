@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, type Directive } from 'vue'
-import { useEventListener, useIntersectionObserver } from '@vueuse/core'
+import { useEventListener, useIntersectionObserver, refDebounced } from '@vueuse/core'
 import { RouterLink, useRouter } from 'vue-router'
 import { Icon } from '@iconify/vue'
 import { pages } from '@/data/pages-loader'
@@ -43,6 +43,7 @@ function normalize(str: string): string {
 }
 
 const searchQuery = ref('')
+const debouncedQuery = refDebounced(searchQuery, 300)
 const activeCategory = ref<CategoryId | null>(null)
 
 const searchablePages = pages.map((p) => ({
@@ -53,7 +54,7 @@ const searchablePages = pages.map((p) => ({
 }))
 
 const filteredPages = computed(() => {
-  const query = normalize(searchQuery.value.trim())
+  const query = normalize(debouncedQuery.value.trim())
   const category = activeCategory.value
 
   return searchablePages.filter((page) => {
